@@ -8,21 +8,20 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/users")
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/users/{id}")
     UserModel getUser(@PathVariable(name = "id") Long id) {
         return userService.getUser(id);
     }
 
-    @PostMapping
+    @PostMapping("/register")
     UserModel registerUser(@RequestBody UserRegisterRequest registerRequest) {
         return userService.registerUser(registerRequest);
     }
 
-    @PutMapping
+    @PutMapping("/users")
     public UserModel updateUser(
             @AuthenticationPrincipal User currentUser,
             @RequestBody UserUpdateRequest updateRequest
@@ -30,7 +29,7 @@ public class UserController {
         return userService.updateUser(currentUser.getId(), updateRequest);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/users")
     void deleteUser(@AuthenticationPrincipal User currentUser) {
         userService.deleteUser(currentUser.getId());
     }

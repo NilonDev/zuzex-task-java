@@ -15,7 +15,7 @@ import java.util.Map;
 @Service
 public class JwtServiceImp implements JwtService {
     private final String SECRET_KEY = "UK0XAYG9bK90g3Oz3q3g31Qvdl1HcDIm";
-    private final Integer ACTION_TIME = 6000_000; // 10 minutes in milliseconds
+    private final Integer ACTION_TIME = 600_000; // 10 minutes in milliseconds
 
     @Override
     public String generateToken(UserDetails userDetails) {
