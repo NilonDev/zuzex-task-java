@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="insert-table-_users" author="nk">
+        <insert tableName="_users">
+            <column name="name" value="John"/>
+            <column name="years" value="30"/>
+            <column name="email" value="john@gmail.com"/>
+            <!--Bcrypt HASH value = 100-->
+            <column name="password" value="$2a$12$g8l8Ppah65SnXoz9jkns8.QgygwFnPIGn6FHtWwmm3cwkHhyTx1V6"/>
+        </insert>
+        <insert tableName="_users">
+            <column name="name" value="Kate"/>
+            <column name="years" value="28"/>
+            <column name="email" value="kate@gmail.com"/>
+            <!--Bcrypt HASH value = 200-->
+            <column name="password" value="$2a$12$E2h0SwH1aIJNaXkw6feu7eemCUnClMMqpoH00vLphijt8cfmsu25K"/>
+        </insert>
+        <insert tableName="_users">
+            <column name="name" value="Bob"/>
+            <column name="years" value="21"/>
+            <column name="email" value="bob@gmail.com"/>
+            <!--Bcrypt HASH value = 300-->
+            <column name="password" value="$2a$12$SDidt2KUXy8e0sMD1oGKzurV8mES7i/6gp6/pUVKZf2Cymbil6vpa"/>
+        </insert>
+        <insert tableName="_users">
+            <column name="name" value="Mariya"/>
+            <column name="years" value="25"/>
+            <column name="email" value="mari@mail.ru"/>
+            <!--Bcrypt HASH value = 400-->
+            <column name="password" value="$2a$12$tWJJ8lEWgokTaHj1X0baiu2ryNmqJQod5njUIIQmwRaY8aoeBSzk2"/>
+        </insert>
+        <insert tableName="_users">
+            <column name="name" value="Ban"/>
+            <column name="years" value="15"/>
+            <column name="email" value="ban@yandex.ru"/>
+            <!--Bcrypt HASH value = 500-->
+            <column name="password" value="$2a$12$yzR5QSUcA/zngbw/89ecf.tFOoW6FFJ7112dg.DXQf40PdgtxNYXG"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
