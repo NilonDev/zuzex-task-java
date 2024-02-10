@@ -15,6 +15,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -31,6 +33,12 @@ public class HouseServiceImp implements HouseService {
                         "House with id [%d] not found".formatted(houseId)
                 ));
         return houseMapper.map(house);
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public List<HouseModel> getAllHouses() {
+        return houseMapper.map(houseRepository.findAll());
     }
 
     @Override

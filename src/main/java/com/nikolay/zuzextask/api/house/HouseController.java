@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/houses")
@@ -16,6 +18,11 @@ public class HouseController {
     @GetMapping("/{id}")
     public HouseModel getHouse(Long id) {
         return houseService.getHouse(id);
+    }
+
+    @GetMapping
+    public List<HouseModel> getAllHouses() {
+        return houseService.getAllHouses();
     }
 
     @PostMapping
