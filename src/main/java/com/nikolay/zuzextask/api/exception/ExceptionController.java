@@ -35,12 +35,29 @@ public class ExceptionController {
         return new ResponseEntity<>(apiError, HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<?> badCredentialsException(
+            BadCredentialsException exception,
+            HttpServletRequest request
+    ) {
+        ApiError apiError = new ApiError(
+                HttpStatus.BAD_REQUEST.value(),
+                exception.getMessage(),
+                request.getRequestURI()
+        );
+        return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST);
+    }
 
-//    @ExceptionHandler(BadCredentialsException.class)
-//    public ResponseEntity<?> badCredentialsException(
-//            BadCredentialsException exception,
-//            HttpServletRequest request
-//    ) {
-//        return ResponseEntity.ok("Все сломалось");
-//    }
+    @ExceptionHandler(ForbiddenException.class)
+    public ResponseEntity<?> forbiddenException(
+            ForbiddenException exception,
+            HttpServletRequest request
+    ) {
+        ApiError apiError = new ApiError(
+                HttpStatus.FORBIDDEN.value(),
+                exception.getMessage(),
+                request.getRequestURI()
+        );
+        return new ResponseEntity<>(apiError, HttpStatus.FORBIDDEN);
+    }
 }
