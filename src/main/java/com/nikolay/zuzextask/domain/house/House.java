@@ -24,7 +24,7 @@ public class House {
     private String street;
     @Column(name = "number")
     private String number;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id")
     private User owner;
 
@@ -36,10 +36,10 @@ public class House {
     )
     private Set<User> lodgers = new HashSet<>();
 
-//    @PreRemove
-//    public void clearLodgers() {
-//        lodgers.clear();
-//    }
+    @PreRemove
+    public void clearLodgers() {
+        lodgers.clear();
+    }
 
     public void addLodger(User lodger) {
         lodgers.add(lodger);
